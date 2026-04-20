@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Ready to continue UI tweaks or finish deployment from the dashboard.
+- Verify whether the latest PDF download fix is truly safe after repeated `oklch` export errors.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -28,10 +28,11 @@
 - Moved the `Download PDF` button from the form panel to the top-right area of the PDF preview.
 - Fixed the PDF export error from `html2canvas` by cloning the preview and inlining computed styles before rendering.
 - Hardened the PDF export fix by stripping classes from the export clone and normalizing `oklch` / `color-mix` values before capture.
+- Isolated PDF export into a blank offscreen `iframe` so `html2canvas` no longer sees the app stylesheet during capture.
 
 ## Next Steps
-- Complete the Cloudflare Pages setup form and trigger the first production deploy.
-- Push the latest UI tweaks if these changes should go live immediately.
+- If needed, commit and push the latest iframe-based PDF export fix.
+- Re-test the `Download PDF` button in a freshly reloaded browser session or after the latest deploy finishes.
 
 ## Blockers
 - none

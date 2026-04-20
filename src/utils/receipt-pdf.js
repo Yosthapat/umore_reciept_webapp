@@ -67,21 +67,47 @@ function cloneNodeWithInlineStyles(sourceNode) {
 }
 
 function createExportContainer(sourceElement) {
-  const exportRoot = document.createElement("div");
-  exportRoot.style.position = "fixed";
-  exportRoot.style.left = "-99999px";
-  exportRoot.style.top = "0";
-  exportRoot.style.width = `${sourceElement.offsetWidth}px`;
-  exportRoot.style.padding = "0";
-  exportRoot.style.margin = "0";
-  exportRoot.style.backgroundColor = "#ffffff";
-  exportRoot.style.zIndex = "-1";
-
   const clonedElement = cloneNodeWithInlineStyles(sourceElement);
-  exportRoot.appendChild(clonedElement);
-  document.body.appendChild(exportRoot);
+  const iframe = document.createElement("iframe");
+  iframe.setAttribute("aria-hidden", "true");
+  iframe.style.position = "fixed";
+  iframe.style.left = "-99999px";
+  iframe.style.top = "0";
+  iframe.style.width = `${sourceElement.offsetWidth}px`;
+  iframe.style.height = `${sourceElement.offsetHeight}px`;
+  iframe.style.border = "0";
+  iframe.style.opacity = "0";
+  iframe.style.pointerEvents = "none";
+  document.body.appendChild(iframe);
 
-  return { exportRoot, clonedElement };
+  const iframeDocument = iframe.contentDocument;
+  if (!iframeDocument) {
+    iframe.remove();
+    throw new Error("Unable to create export document.");
+  }
+
+  iframeDocument.open();
+  iframeDocument.write(`
+    <!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <style>
+          html, body {
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+          }
+        </style>
+      </head>
+      <body></body>
+    </html>
+  `);
+  iframeDocument.close();
+
+  iframeDocument.body.appendChild(clonedElement);
+
+  return { exportRoot: iframe, clonedElement };
 }
 
 export async function downloadReceiptPdf(element) {
