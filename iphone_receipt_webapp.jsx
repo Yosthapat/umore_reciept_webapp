@@ -79,13 +79,29 @@ export default function IphoneReceiptWebApp() {
   }
 
   async function handleDownloadPdf() {
-    if (items.length === 0) {
+    const hasCommittedItems = items.length > 0;
+    const canUseDraftForDownload = !hasCommittedItems && !hasDraftValidationErrors;
+
+    if (!hasCommittedItems && !canUseDraftForDownload) {
+      setShowDraftErrors(true);
       return;
     }
 
     setIsDownloadingPdf(true);
 
     try {
+      if (canUseDraftForDownload) {
+        setItems([draftItem]);
+        setDraftItem(createEmptyItem());
+        setShowDraftErrors(false);
+
+        await new Promise((resolve) => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(resolve);
+          });
+        });
+      }
+
       await downloadReceiptPdf(previewRef.current);
     } finally {
       setIsDownloadingPdf(false);
@@ -105,9 +121,6 @@ export default function IphoneReceiptWebApp() {
             umore receipt
           </div>
           <h1 className="mt-3 text-xl font-bold tracking-tight sm:text-2xl">ฟอร์มใบรับรองแทนใบเสร็จรับเงิน</h1>
-          <p className="mt-1 max-w-[42rem] text-sm leading-6 text-[var(--umore-muted)]">
-            กรอกข้อมูลและ มีตัวอย่างผลลัพธ์ด้านขวา และกดดาวน์โหลด PDF ได้ทันที
-          </p>
         </motion.div>
 
         <div className="grid gap-4 lg:items-start lg:gap-5 xl:grid-cols-[400px_minmax(0,1fr)]">
@@ -121,7 +134,6 @@ export default function IphoneReceiptWebApp() {
             items={items}
             footerNote={footerNote}
             autoFooterNote={autoFooterNote}
-            isDownloadingPdf={isDownloadingPdf}
             onOwnerChange={setOwnerName}
             onSignChange={setSignName}
             onSignDateChange={setSignDate}
@@ -131,7 +143,6 @@ export default function IphoneReceiptWebApp() {
             onRemoveItem={removeItem}
             onToggleAutoFooterNote={setAutoFooterNote}
             onFooterNoteChange={setFooterNote}
-            onDownloadPdf={handleDownloadPdf}
           />
 
           <ReceiptPreviewPanel
@@ -142,6 +153,8 @@ export default function IphoneReceiptWebApp() {
             signDate={signDate}
             footerNote={footerNote}
             total={total}
+            isDownloadingPdf={isDownloadingPdf}
+            onDownloadPdf={handleDownloadPdf}
           />
         </div>
       </div>

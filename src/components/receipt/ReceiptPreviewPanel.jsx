@@ -1,16 +1,34 @@
 import React from "react";
+import { Download } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { formatAmount, formatThaiLongDate } from "../../utils/receipt-formatters";
 
-export function ReceiptPreviewPanel({ previewRef, items, ownerName, signName, signDate, footerNote, total }) {
+export function ReceiptPreviewPanel({
+  previewRef,
+  items,
+  ownerName,
+  signName,
+  signDate,
+  footerNote,
+  total,
+  isDownloadingPdf,
+  onDownloadPdf,
+}) {
   const ownerDisplayName = ownerName || "................................";
   const signDisplayName = signName || "................................";
 
   return (
     <div className="space-y-4">
-      <div>
-        <h2 className="text-lg font-semibold">ตัวอย่าง PDF</h2>
-        <p className="text-sm text-[var(--umore-muted)]">แสดงผลเอกสารเต็มหน้าแบบพร้อมพิมพ์</p>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h2 className="text-lg font-semibold">Preview PDF</h2>
+          <p className="text-sm text-[var(--umore-muted)]">Display the full-page document in print-ready format.</p>
+        </div>
+        <Button onClick={onDownloadPdf} className="h-12 w-full rounded-2xl text-base font-semibold sm:w-auto" disabled={isDownloadingPdf}>
+          <Download className="mr-2 h-5 w-5" />
+          {isDownloadingPdf ? "กำลังสร้าง PDF..." : "ดาวน์โหลด PDF"}
+        </Button>
       </div>
 
       <div className="overflow-auto rounded-[1.75rem] bg-[linear-gradient(180deg,color-mix(in_oklab,var(--umore-cream)_86%,white)_0%,color-mix(in_oklab,var(--umore-blue-soft)_24%,white)_100%)] p-3 shadow-inner sm:rounded-[2rem] sm:p-4">

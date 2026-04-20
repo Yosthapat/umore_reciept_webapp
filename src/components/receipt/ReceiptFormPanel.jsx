@@ -1,5 +1,5 @@
 import React from "react";
-import { BadgeDollarSign, CalendarDays, Download, FileText, Plus, Trash2, User } from "lucide-react";
+import { BadgeDollarSign, CalendarDays, FileText, Plus, Trash2, User } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,6 @@ export function ReceiptFormPanel({
   items,
   footerNote,
   autoFooterNote,
-  isDownloadingPdf,
   onOwnerChange,
   onSignChange,
   onSignDateChange,
@@ -29,7 +28,6 @@ export function ReceiptFormPanel({
   onRemoveItem,
   onToggleAutoFooterNote,
   onFooterNoteChange,
-  onDownloadPdf,
 }) {
   return (
     <Card className="rounded-[1.75rem] border-0 shadow-sm sm:rounded-3xl">
@@ -202,14 +200,10 @@ export function ReceiptFormPanel({
 
         {items.length === 0 ? (
           <div className="rounded-2xl bg-[color-mix(in_oklab,var(--umore-cream)_76%,white)] px-4 py-3 text-sm text-[var(--umore-blue-deep)] ring-1 ring-[color-mix(in_oklab,var(--umore-blue)_20%,white)]">
-            กรุณากดเพิ่มรายการอย่างน้อย 1 รายการก่อนดาวน์โหลด
+            กดดาวน์โหลดได้เลยหลังกรอกรายการครบ หรือกดเพิ่มรายการก่อนเพื่อดูใน preview
           </div>
         ) : null}
 
-        <Button onClick={onDownloadPdf} className="h-12 w-full rounded-2xl text-base font-semibold" disabled={isDownloadingPdf || items.length === 0}>
-          <Download className="mr-2 h-5 w-5" />
-          {isDownloadingPdf ? "กำลังสร้าง PDF..." : "ดาวน์โหลด PDF"}
-        </Button>
       </CardContent>
     </Card>
   );
