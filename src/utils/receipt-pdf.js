@@ -1,10 +1,45 @@
+let styleResolverElement = null;
+
+function getStyleResolverElement() {
+  if (!styleResolverElement) {
+    styleResolverElement = document.createElement("div");
+    styleResolverElement.style.position = "fixed";
+    styleResolverElement.style.left = "-99999px";
+    styleResolverElement.style.top = "0";
+    styleResolverElement.style.visibility = "hidden";
+    document.body.appendChild(styleResolverElement);
+  }
+
+  return styleResolverElement;
+}
+
+function normalizeStyleValue(propertyName, propertyValue) {
+  if (!propertyValue.includes("oklch(") && !propertyValue.includes("color-mix(")) {
+    return propertyValue;
+  }
+
+  const resolverElement = getStyleResolverElement();
+  resolverElement.style.removeProperty(propertyName);
+  resolverElement.style.setProperty(propertyName, propertyValue);
+
+  const resolvedValue = window.getComputedStyle(resolverElement).getPropertyValue(propertyName);
+  resolverElement.style.removeProperty(propertyName);
+
+  return resolvedValue || propertyValue;
+}
+
 function copyComputedStyles(sourceElement, targetElement) {
   const computedStyle = window.getComputedStyle(sourceElement);
 
   for (const propertyName of computedStyle) {
-    targetElement.style.setProperty(
+    const propertyValue = normalizeStyleValue(
       propertyName,
       computedStyle.getPropertyValue(propertyName),
+    );
+
+    targetElement.style.setProperty(
+      propertyName,
+      propertyValue,
       computedStyle.getPropertyPriority(propertyName),
     );
   }
@@ -20,6 +55,8 @@ function cloneNodeWithInlineStyles(sourceNode) {
   }
 
   const clonedElement = sourceNode.cloneNode(false);
+  clonedElement.removeAttribute("class");
+  clonedElement.removeAttribute("style");
   copyComputedStyles(sourceNode, clonedElement);
 
   for (const childNode of sourceNode.childNodes) {
