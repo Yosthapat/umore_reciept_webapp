@@ -50,13 +50,13 @@ export function ReceiptPreviewPanel({
             <div className="mb-4 flex items-start justify-between gap-3 sm:mb-5 sm:gap-4">
               <div className="w-12 sm:w-20" />
               <div className="flex-1 pt-1 text-center sm:pt-2">
-                <div className="text-[12px] font-semibold sm:text-[16px]">ใบรับรองแทนใบเสร็จรับเงิน</div>
-                <div className="mt-1 text-[11px] font-bold sm:text-[14px]">U MORE ST GROUP Co.,Ltd.</div>
+                <div className="text-[24px] font-semibold sm:text-[24px]">ใบรับรองแทนใบเสร็จรับเงิน</div>
+                <div className="mt-1 text-[24px] font-bold sm:text-[24px]">U MORE ST GROUP Co.,Ltd.</div>
               </div>
               <ReceiptLogoMark />
             </div>
 
-            <table className="mb-3 w-full border-collapse text-[9px] sm:text-[11px]">
+            <table className="mb-3 w-full border-collapse text-[19px] sm:text-[19px]">
               <thead>
                 <tr>
                   <th className="border border-black p-2 text-center font-semibold">วัน / เดือน / ปี</th>
@@ -98,13 +98,13 @@ export function ReceiptPreviewPanel({
               </tbody>
             </table>
 
-            <div className="mt-6 text-center text-[10px] leading-6 sm:mt-8 sm:text-[12px] sm:leading-7">
+            <div className="mt-6 text-center text-[19px] leading-9 sm:mt-8 sm:text-[19px] sm:leading-9">
               ข้าพเจ้า <span className="font-semibold">{ownerDisplayName}</span> ขอรับรองว่า รายจ่ายข้างต้นนี้เป็นค่าใช้จ่ายในการปฏิบัติงานจริง
               และข้าพเจ้าได้จ่ายไปแทนก่อนแล้ว
             </div>
 
             <div className="mt-8 flex justify-end sm:mt-10">
-              <div className="w-[180px] text-center text-[10px] leading-6 sm:w-[270px] sm:text-[12px] sm:leading-7">
+              <div className="w-[320px] text-center text-[19px] leading-9 sm:w-[320px] sm:text-[19px] sm:leading-9">
                 <div>(ลงชื่อ) ...............................................</div>
                 <div>({signDisplayName})</div>
                 <div>
