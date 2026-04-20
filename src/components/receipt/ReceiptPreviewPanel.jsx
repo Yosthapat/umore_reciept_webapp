@@ -2,26 +2,18 @@ import React from "react";
 import { Download } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import umoreMadeLogo from "@/assets/umore-made-logo.png";
 import { formatAmount, formatThaiLongDate } from "../../utils/receipt-formatters";
 
 function ReceiptLogoMark() {
   return (
-    <div
-      className="flex h-12 w-12 items-center justify-center rounded-sm text-center leading-tight sm:h-20 sm:w-20"
-      style={{
-        border: "1.5px solid #1eb7ff",
-        backgroundColor: "#f5f0df",
-        color: "#00a8ff",
-        fontSize: "10px",
-        fontWeight: 500,
-      }}
-    >
-      <span>
-        umore
-        <br />
-        made
-      </span>
-    </div>
+    <img
+      src={umoreMadeLogo}
+      alt="umore made logo"
+      className="h-12 w-12 rounded-sm object-cover sm:h-20 sm:w-20"
+      loading="eager"
+      decoding="sync"
+    />
   );
 }
 
