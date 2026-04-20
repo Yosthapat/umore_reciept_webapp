@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Verify whether the latest PDF download fix is truly safe after repeated `oklch` export errors.
+- Continue minor project maintenance and IDE/config cleanup after stabilizing PDF export.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -30,10 +30,11 @@
 - Hardened the PDF export fix by stripping classes from the export clone and normalizing `oklch` / `color-mix` values before capture.
 - Isolated PDF export into a blank offscreen `iframe` so `html2canvas` no longer sees the app stylesheet during capture.
 - Stopped copying custom CSS variables and unresolved modern color values into the export clone to avoid `html2canvas` parsing `oklch(...)`.
+- Expanded `jsconfig.json` with Vite-friendly module resolution and explicit includes to reduce IDE false-positive red errors.
 
 ## Next Steps
-- If needed, commit and push the latest export-style filtering fix.
-- Re-test the `Download PDF` button in a freshly reloaded browser session or after the latest deploy finishes.
+- If needed, commit and push the latest `jsconfig.json` cleanup.
+- Continue validating the PDF download flow after the newest deploy finishes.
 
 ## Blockers
 - none
