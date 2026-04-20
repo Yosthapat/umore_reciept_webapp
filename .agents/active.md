@@ -29,9 +29,10 @@
 - Fixed the PDF export error from `html2canvas` by cloning the preview and inlining computed styles before rendering.
 - Hardened the PDF export fix by stripping classes from the export clone and normalizing `oklch` / `color-mix` values before capture.
 - Isolated PDF export into a blank offscreen `iframe` so `html2canvas` no longer sees the app stylesheet during capture.
+- Stopped copying custom CSS variables and unresolved modern color values into the export clone to avoid `html2canvas` parsing `oklch(...)`.
 
 ## Next Steps
-- If needed, commit and push the latest iframe-based PDF export fix.
+- If needed, commit and push the latest export-style filtering fix.
 - Re-test the `Download PDF` button in a freshly reloaded browser session or after the latest deploy finishes.
 
 ## Blockers

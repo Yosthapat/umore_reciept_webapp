@@ -32,10 +32,18 @@ function copyComputedStyles(sourceElement, targetElement) {
   const computedStyle = window.getComputedStyle(sourceElement);
 
   for (const propertyName of computedStyle) {
+    if (propertyName.startsWith("--")) {
+      continue;
+    }
+
     const propertyValue = normalizeStyleValue(
       propertyName,
       computedStyle.getPropertyValue(propertyName),
     );
+
+    if (propertyValue.includes("oklch(") || propertyValue.includes("color-mix(")) {
+      continue;
+    }
 
     targetElement.style.setProperty(
       propertyName,
