@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Ready for final deployment by connecting a hosting account.
+- Ready to finish Cloudflare Pages deployment from the dashboard.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -12,10 +12,11 @@
 - Moved PDF/export dependencies to lazy loading and added a download loading state.
 - Added inline form validation and amount sanitization/formatting for receipt rows.
 - Added free deployment scripts and a Cloudflare Pages deployment guide.
+- Committed and pushed the project to `origin/main`.
 
 ## Next Steps
-- Connect the repo to Cloudflare Pages or run the CLI deploy after Cloudflare login.
-- Optionally add a custom domain after the first successful deploy.
+- Complete the Cloudflare Pages setup form and trigger the first production deploy.
+- Review the deploy log and published URL after Cloudflare finishes building.
 
 ## Blockers
 - none
