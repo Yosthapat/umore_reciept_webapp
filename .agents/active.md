@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Continue minor project maintenance and IDE/config cleanup after stabilizing PDF export.
+- Polish the PDF export output so branding and download naming match the on-screen preview better.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -31,10 +31,11 @@
 - Isolated PDF export into a blank offscreen `iframe` so `html2canvas` no longer sees the app stylesheet during capture.
 - Stopped copying custom CSS variables and unresolved modern color values into the export clone to avoid `html2canvas` parsing `oklch(...)`.
 - Expanded `jsconfig.json` with Vite-friendly module resolution and explicit includes to reduce IDE false-positive red errors.
+- Replaced the preview logo block with explicit inline brand colors and changed PDF filenames to numeric timestamps.
 
 ## Next Steps
-- If needed, commit and push the latest `jsconfig.json` cleanup.
-- Continue validating the PDF download flow after the newest deploy finishes.
+- If needed, commit and push the latest logo and filename export polish.
+- Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers
 - none

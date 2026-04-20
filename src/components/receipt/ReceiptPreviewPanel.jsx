@@ -4,6 +4,27 @@ import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatAmount, formatThaiLongDate } from "../../utils/receipt-formatters";
 
+function ReceiptLogoMark() {
+  return (
+    <div
+      className="flex h-12 w-12 items-center justify-center rounded-sm text-center leading-tight sm:h-20 sm:w-20"
+      style={{
+        border: "1.5px solid #1eb7ff",
+        backgroundColor: "#f5f0df",
+        color: "#00a8ff",
+        fontSize: "10px",
+        fontWeight: 500,
+      }}
+    >
+      <span>
+        umore
+        <br />
+        made
+      </span>
+    </div>
+  );
+}
+
 export function ReceiptPreviewPanel({
   previewRef,
   items,
@@ -40,11 +61,7 @@ export function ReceiptPreviewPanel({
                 <div className="text-[12px] font-semibold sm:text-[16px]">ใบรับรองแทนใบเสร็จรับเงิน</div>
                 <div className="mt-1 text-[11px] font-bold sm:text-[14px]">U MORE ST GROUP Co.,Ltd.</div>
               </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-sm border bg-[#f5f0df] text-center text-[8px] leading-tight text-sky-400 sm:h-20 sm:w-20 sm:text-[10px]">
-                umore
-                <br />
-                made
-              </div>
+              <ReceiptLogoMark />
             </div>
 
             <table className="mb-3 w-full border-collapse text-[9px] sm:text-[11px]">
