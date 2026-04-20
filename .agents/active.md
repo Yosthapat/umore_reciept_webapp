@@ -26,6 +26,7 @@
 - Updated the UI theme to match the logo direction with warm cream surfaces and soft `umore` blue accents.
 - Fixed the download flow so a valid draft item can be exported immediately without forcing the user to press `เพิ่มรายการ` first.
 - Moved the `Download PDF` button from the form panel to the top-right area of the PDF preview.
+- Fixed the PDF export error from `html2canvas` by cloning the preview and inlining computed styles before rendering.
 
 ## Next Steps
 - Complete the Cloudflare Pages setup form and trigger the first production deploy.
