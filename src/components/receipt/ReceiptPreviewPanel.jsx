@@ -27,7 +27,7 @@ export function ReceiptPreviewPanel({
         </div>
         <Button onClick={onDownloadPdf} className="h-12 w-full rounded-2xl text-base font-semibold sm:w-auto" disabled={isDownloadingPdf}>
           <Download className="mr-2 h-5 w-5" />
-          {isDownloadingPdf ? "กำลังสร้าง PDF..." : "ดาวน์โหลด PDF"}
+          {isDownloadingPdf ? "Generating PDF..." : "Download PDF"}
         </Button>
       </div>
 
