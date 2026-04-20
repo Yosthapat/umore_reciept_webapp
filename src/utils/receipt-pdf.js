@@ -101,6 +101,11 @@ export async function downloadReceiptPdf(element) {
       scale: 2,
       useCORS: true,
       backgroundColor: "#ffffff",
+      onclone: (clonedDocument) => {
+        clonedDocument
+          .querySelectorAll('style, link[rel="stylesheet"]')
+          .forEach((styleNode) => styleNode.remove());
+      },
     });
 
     const imageData = canvas.toDataURL("image/png");
