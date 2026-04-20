@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Ready to finish Cloudflare Pages deployment from the dashboard.
+- Ready to continue UI tweaks or finish deployment from the dashboard.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -13,10 +13,21 @@
 - Added inline form validation and amount sanitization/formatting for receipt rows.
 - Added free deployment scripts and a Cloudflare Pages deployment guide.
 - Committed and pushed the project to `origin/main`.
+- Updated the name selectors to default to `เลือกชื่อ` with preview fallbacks.
+- Updated receipt dates to default to the current day for the initial row and new rows.
+- Updated the initial description/amount fields to start empty with the requested placeholders.
+- Removed the floating total badge above the preview card.
+- Shortened the amount field label from `จำนวนเงินแต่ละรายการ` to `จำนวนเงิน`.
+- Added a dedicated signing-date input defaulting to today and wired the preview signature date to it.
+- Changed the item-entry flow to use a resettable draft form: add item to preview only after pressing `เพิ่มรายการ`.
+- Replaced the iPhone-style preview shell with a full-page PDF document preview.
+- Moved the document logo to the right side of the PDF header.
+- Adapted the form and PDF preview layout for easier phone use with tighter spacing and touch-friendly controls.
+- Updated the UI theme to match the logo direction with warm cream surfaces and soft `umore` blue accents.
 
 ## Next Steps
 - Complete the Cloudflare Pages setup form and trigger the first production deploy.
-- Review the deploy log and published URL after Cloudflare finishes building.
+- Push the latest UI tweaks if these changes should go live immediately.
 
 ## Blockers
 - none

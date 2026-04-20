@@ -2,13 +2,24 @@
 
 :root {
   font-family: "SF Pro Text", "Noto Sans Thai", "Segoe UI", sans-serif;
-  color: #171717;
-  background: #f5f5f5;
+  color: #1f2a30;
+  background:
+    radial-gradient(circle at top left, rgba(108, 198, 242, 0.16), transparent 28%),
+    linear-gradient(180deg, #f8f3e3 0%, #f4efe1 48%, #efe8d5 100%);
+  --umore-blue: #4db8ea;
+  --umore-blue-deep: #2598cf;
+  --umore-blue-soft: #dff4fb;
+  --umore-cream: #f8f3e3;
+  --umore-paper: #fffdf8;
+  --umore-border: #d9d0bd;
+  --umore-ink: #243238;
+  --umore-muted: #66767d;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  background: var(--umore-cream);
 }
 
 button,

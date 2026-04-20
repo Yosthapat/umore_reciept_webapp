@@ -1,7 +1,13 @@
 import React from "react";
 
 export const Card = React.forwardRef(function Card({ className = "", ...props }, ref) {
-  return <div ref={ref} className={["bg-white", className].filter(Boolean).join(" ")} {...props} />;
+  return (
+    <div
+      ref={ref}
+      className={["bg-[var(--umore-paper)] ring-1 ring-[color-mix(in_oklab,var(--umore-border)_75%,white)]", className].filter(Boolean).join(" ")}
+      {...props}
+    />
+  );
 });
 
 export const CardHeader = React.forwardRef(function CardHeader({ className = "", ...props }, ref) {

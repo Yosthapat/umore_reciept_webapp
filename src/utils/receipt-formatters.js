@@ -1,7 +1,14 @@
+export function getTodayDateString() {
+  const today = new Date();
+  const timezoneOffset = today.getTimezoneOffset() * 60 * 1000;
+
+  return new Date(today.getTime() - timezoneOffset).toISOString().slice(0, 10);
+}
+
 export function createEmptyItem() {
   return {
     id: crypto.randomUUID(),
-    date: "",
+    date: getTodayDateString(),
     description: "",
     amount: "",
     note: "",

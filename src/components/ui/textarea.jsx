@@ -5,8 +5,8 @@ export const Textarea = React.forwardRef(function Textarea({ className = "", ...
     <textarea
       ref={ref}
       className={[
-        "w-full border border-neutral-300 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition-colors",
-        "placeholder:text-neutral-400 focus:border-neutral-500 focus:ring-2 focus:ring-neutral-200",
+        "w-full border border-[var(--umore-border)] bg-[color-mix(in_oklab,var(--umore-paper)_92%,white)] px-3 py-2 text-sm text-[var(--umore-ink)] outline-none transition-colors",
+        "placeholder:text-[var(--umore-muted)] focus:border-[var(--umore-blue)] focus:ring-2 focus:ring-[color-mix(in_oklab,var(--umore-blue-soft)_70%,white)]",
         className,
       ]
         .filter(Boolean)
