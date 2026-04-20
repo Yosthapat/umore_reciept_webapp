@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Replace the placeholder PDF logo with the provided brand image asset and keep export output aligned with the preview.
+- Refine the PDF document layout to match the sample more closely with a reserved table area, no row separators, and more document-style certification copy.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -33,9 +33,10 @@
 - Expanded `jsconfig.json` with Vite-friendly module resolution and explicit includes to reduce IDE false-positive red errors.
 - Replaced the preview logo block with explicit inline brand colors and changed PDF filenames to numeric timestamps.
 - Added the provided `umore made` PNG as a real asset and wired the PDF preview to render it directly.
+- Reworked the PDF table into a fixed-height reserved area with vertically stacked entries, enlarged the logo, and changed the certification line to a document-style name pattern.
 
 ## Next Steps
-- If needed, commit and push the new logo asset update.
+- If needed, commit and push the latest PDF layout refinements.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers

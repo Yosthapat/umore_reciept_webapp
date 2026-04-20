@@ -10,7 +10,7 @@ function ReceiptLogoMark() {
     <img
       src={umoreMadeLogo}
       alt="umore made logo"
-      className="h-12 w-12 rounded-sm object-cover sm:h-20 sm:w-20"
+      className="h-[92px] w-[92px] rounded-sm object-contain sm:h-[128px] sm:w-[128px]"
       loading="eager"
       decoding="sync"
     />
@@ -48,7 +48,7 @@ export function ReceiptPreviewPanel({
         <div className="max-h-[75vh] overflow-auto rounded-[1.25rem] bg-[color-mix(in_oklab,var(--umore-paper)_82%,white)] p-2 sm:rounded-[1.5rem] sm:p-3 md:p-6">
           <div ref={previewRef} className="mx-auto w-full max-w-[794px] bg-white p-3 text-black shadow-[0_24px_80px_rgba(0,0,0,0.12)] sm:p-5">
             <div className="mb-4 flex items-start justify-between gap-3 sm:mb-5 sm:gap-4">
-              <div className="w-12 sm:w-20" />
+              <div className="w-[92px] sm:w-[128px]" />
               <div className="flex-1 pt-1 text-center sm:pt-2">
                 <div className="text-[24px] font-semibold sm:text-[24px]">ใบรับรองแทนใบเสร็จรับเงิน</div>
                 <div className="mt-1 text-[24px] font-bold sm:text-[24px]">U MORE ST GROUP Co.,Ltd.</div>
@@ -66,28 +66,44 @@ export function ReceiptPreviewPanel({
                 </tr>
               </thead>
               <tbody>
-                {items.length > 0 ? (
-                  items.map((item) => (
-                    <tr key={item.id}>
-                      <td className="min-w-[74px] border border-black p-1.5 align-top sm:min-w-[110px] sm:p-2">
-                        {formatThaiLongDate(item.date) || "-"}
-                      </td>
-                      <td className="min-w-[120px] whitespace-pre-wrap border border-black p-1.5 align-top sm:min-w-[280px] sm:p-2">
-                        {item.description || "-"}
-                      </td>
-                      <td className="min-w-[70px] border border-black p-1.5 text-right align-top sm:min-w-[110px] sm:p-2">
-                        {formatAmount(item.amount) || "-"}
-                      </td>
-                      <td className="min-w-[70px] border border-black p-1.5 align-top sm:min-w-[100px] sm:p-2">{item.note || "-"}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={4} className="border border-black p-4 text-center text-neutral-500 sm:p-6">
-                      ยังไม่มีรายการที่เพิ่ม
-                    </td>
-                  </tr>
-                )}
+                <tr>
+                  <td className="min-w-[150px] border border-black p-3 align-top">
+                    <div className="flex min-h-[420px] flex-col gap-4">
+                      {items.length > 0 ? (
+                        items.map((item) => <div key={item.id}>{formatThaiLongDate(item.date) || "-"}</div>)
+                      ) : (
+                        <div className="text-neutral-500">ยังไม่มีรายการที่เพิ่ม</div>
+                      )}
+                    </div>
+                  </td>
+                  <td className="min-w-[420px] border border-black p-3 align-top">
+                    <div className="flex min-h-[420px] flex-col gap-4 whitespace-pre-wrap">
+                      {items.length > 0 ? (
+                        items.map((item) => <div key={item.id}>{item.description || "-"}</div>)
+                      ) : (
+                        <div className="text-neutral-500">กรอกรายการแล้วกดเพิ่มรายการ</div>
+                      )}
+                    </div>
+                  </td>
+                  <td className="min-w-[170px] border border-black p-3 align-top text-right">
+                    <div className="flex min-h-[420px] flex-col gap-4">
+                      {items.length > 0 ? (
+                        items.map((item) => <div key={item.id}>{formatAmount(item.amount) || "-"}</div>)
+                      ) : (
+                        <div className="text-left text-neutral-500">-</div>
+                      )}
+                    </div>
+                  </td>
+                  <td className="min-w-[150px] border border-black p-3 align-top">
+                    <div className="flex min-h-[420px] flex-col gap-4">
+                      {items.length > 0 ? (
+                        items.map((item) => <div key={item.id}>{item.note || "-"}</div>)
+                      ) : (
+                        <div className="text-neutral-500">-</div>
+                      )}
+                    </div>
+                  </td>
+                </tr>
                 <tr>
                   <td colSpan={2} className="border border-black p-1.5 font-semibold sm:p-2">
                     รวมเป็นทั้งสิ้น ({footerNote || "................................................"})
@@ -98,9 +114,15 @@ export function ReceiptPreviewPanel({
               </tbody>
             </table>
 
-            <div className="mt-6 text-center text-[19px] leading-9 sm:mt-8 sm:text-[19px] sm:leading-9">
-              ข้าพเจ้า <span className="font-semibold">{ownerDisplayName}</span> ขอรับรองว่า รายจ่ายข้างต้นนี้เป็นค่าใช้จ่ายในการปฏิบัติงานจริง
-              และข้าพเจ้าได้จ่ายไปแทนก่อนแล้ว
+            <div className="mt-8 text-center text-[19px] leading-10 sm:mt-10 sm:text-[19px] sm:leading-10">
+              <span>ข้าพเจ้า</span>
+              <span className="mx-2 inline-block min-w-[320px] border-b border-black px-2 text-center font-semibold">
+                {ownerDisplayName}
+              </span>
+              <span>
+                ขอรับรองว่า รายจ่ายข้างต้นนี้เป็นค่าใช้จ่ายในการปฏิบัติงานจริง
+                และข้าพเจ้าได้จ่ายไปแทนก่อนแล้ว
+              </span>
             </div>
 
             <div className="mt-8 flex justify-end sm:mt-10">
