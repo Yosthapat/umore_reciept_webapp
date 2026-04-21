@@ -46,9 +46,10 @@
 - Removed the dotted underline from the owner-name field in the certification block because it overlapped the text.
 - Expanded all `น.ส.` person prefixes to `นางสาว` in the dropdown data.
 - Added favicon/apple-touch icon links and a web app manifest using the provided `umore made` logo.
+- Standardized app title and manifest naming to `UMORE`.
 
 ## Next Steps
-- If needed, commit and push the shortcut icon/manifest update.
+- If needed, commit and push the latest app naming update.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers

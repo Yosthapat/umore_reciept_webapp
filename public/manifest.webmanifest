@@ -1,7 +1,7 @@
 {
-  "name": "UMore Receipt",
-  "short_name": "UMore",
-  "description": "Receipt replacement form generator for UMore.",
+  "name": "UMORE Receipt",
+  "short_name": "UMORE",
+  "description": "Receipt replacement form generator for UMORE.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
