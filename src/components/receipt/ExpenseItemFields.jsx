@@ -25,7 +25,7 @@ export function ExpenseItemFields({
   onRemove,
 }) {
   return (
-    <div className="rounded-3xl border border-neutral-200 p-4 shadow-sm">
+    <div className="min-w-0 rounded-3xl border border-neutral-200 p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
         <div className="text-sm font-semibold text-neutral-700">{title || `รายการที่ ${index + 1}`}</div>
         {canRemove ? (
@@ -42,7 +42,7 @@ export function ExpenseItemFields({
         ) : null}
       </div>
 
-      <div className="grid gap-3">
+      <div className="grid min-w-0 gap-3">
         <div className="space-y-2">
           <Label>วัน/เดือน/ปี</Label>
           <Input

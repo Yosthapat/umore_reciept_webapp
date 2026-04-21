@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Add a logo-based shortcut/app icon for the web app.
+- Improve iPhone/mobile layout so the form and A4 preview do not overflow the viewport.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -47,10 +47,11 @@
 - Expanded all `น.ส.` person prefixes to `นางสาว` in the dropdown data.
 - Added favicon/apple-touch icon links and a web app manifest using the provided `umore made` logo.
 - Standardized app title and manifest naming to `UMORE`.
+- Added mobile overflow protection with `min-w-0`, root/body horizontal clipping, and contained A4 preview scrolling so the form fits iPhone screens.
 
 ## Next Steps
-- If needed, commit and push the latest app naming update.
-- Validate the exported PDF against the live preview after the next deploy finishes.
+- If needed, commit and push the latest iPhone layout fix.
+- Validate the form and PDF preview on a real iPhone after the next deploy finishes.
 
 ## Blockers
 - none

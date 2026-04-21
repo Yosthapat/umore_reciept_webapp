@@ -31,7 +31,7 @@ export function ReceiptPreviewPanel({
   const signDisplayName = signName || "................................";
 
   return (
-    <div className="space-y-4">
+    <div className="min-w-0 space-y-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold">Preview PDF</h2>
@@ -43,8 +43,8 @@ export function ReceiptPreviewPanel({
         </Button>
       </div>
 
-      <div className="overflow-auto rounded-[1.75rem] bg-[linear-gradient(180deg,color-mix(in_oklab,var(--umore-cream)_86%,white)_0%,color-mix(in_oklab,var(--umore-blue-soft)_24%,white)_100%)] p-3 shadow-inner sm:rounded-[2rem] sm:p-4">
-        <div className="max-h-[75vh] overflow-auto rounded-[1.25rem] bg-[color-mix(in_oklab,var(--umore-paper)_82%,white)] p-2 sm:rounded-[1.5rem] sm:p-3 md:p-6">
+      <div className="max-w-full overflow-hidden rounded-[1.75rem] bg-[linear-gradient(180deg,color-mix(in_oklab,var(--umore-cream)_86%,white)_0%,color-mix(in_oklab,var(--umore-blue-soft)_24%,white)_100%)] p-3 shadow-inner sm:rounded-[2rem] sm:p-4">
+        <div className="max-h-[75vh] max-w-full overflow-auto rounded-[1.25rem] bg-[color-mix(in_oklab,var(--umore-paper)_82%,white)] p-2 sm:rounded-[1.5rem] sm:p-3 md:p-6">
           <div
             ref={previewRef}
             className="mx-auto h-[1123px] w-[794px] bg-white px-12 py-10 text-black shadow-[0_24px_80px_rgba(0,0,0,0.12)]"

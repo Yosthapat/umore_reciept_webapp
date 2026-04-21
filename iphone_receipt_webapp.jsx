@@ -109,8 +109,8 @@ export default function IphoneReceiptWebApp() {
   }
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(248,243,227,0.86)_0%,rgba(241,235,220,0.92)_100%)] text-[var(--umore-ink)]">
-      <div className="mx-auto max-w-6xl px-3 py-4 sm:px-4 sm:py-6 md:px-6">
+    <div className="min-h-screen min-w-0 overflow-x-hidden bg-[linear-gradient(180deg,rgba(248,243,227,0.86)_0%,rgba(241,235,220,0.92)_100%)] text-[var(--umore-ink)]">
+      <div className="mx-auto min-w-0 max-w-6xl px-3 py-4 sm:px-4 sm:py-6 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ export default function IphoneReceiptWebApp() {
           <h1 className="mt-3 text-xl font-bold tracking-tight sm:text-2xl">ฟอร์มใบรับรองแทนใบเสร็จรับเงิน</h1>
         </motion.div>
 
-        <div className="grid gap-4 lg:items-start lg:gap-5 xl:grid-cols-[400px_minmax(0,1fr)]">
+        <div className="grid min-w-0 gap-4 lg:items-start lg:gap-5 xl:grid-cols-[400px_minmax(0,1fr)]">
           <ReceiptFormPanel
             people={PEOPLE}
             ownerName={ownerName}

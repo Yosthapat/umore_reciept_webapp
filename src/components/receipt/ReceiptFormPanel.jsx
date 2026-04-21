@@ -30,7 +30,7 @@ export function ReceiptFormPanel({
   onFooterNoteChange,
 }) {
   return (
-    <Card className="rounded-[1.75rem] border-0 shadow-sm sm:rounded-3xl">
+    <Card className="min-w-0 overflow-hidden rounded-[1.75rem] border-0 shadow-sm sm:rounded-3xl">
       <CardHeader className="p-4 pb-0 sm:p-6 sm:pb-0">
         <CardTitle className="flex items-center gap-2 text-lg">
           <FileText className="h-5 w-5" />
@@ -100,7 +100,7 @@ export function ReceiptFormPanel({
               <CalendarDays className="h-4 w-4" />
               กรอกรายการ
             </Label>
-            <Button type="button" onClick={onAddItem} className="h-12 w-full rounded-2xl text-base sm:w-auto">
+            <Button type="button" onClick={onAddItem} className="h-12 w-full rounded-2xl px-4 text-base sm:w-auto">
               <Plus className="mr-2 h-4 w-4" />
               เพิ่มรายการ
             </Button>
