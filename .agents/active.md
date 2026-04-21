@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Continue refining the PDF certification text layout to match the provided sample.
+- Continue small receipt data and PDF layout refinements.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -44,9 +44,10 @@
 - Increased the certification block text back to 19px for better PDF readability.
 - Widened the date column, reduced the amount column, and prevented Thai date text from wrapping in the PDF table.
 - Removed the dotted underline from the owner-name field in the certification block because it overlapped the text.
+- Expanded all `น.ส.` person prefixes to `นางสาว` in the dropdown data.
 
 ## Next Steps
-- If needed, commit and push the latest certification field cleanup.
+- If needed, commit and push the latest dropdown name prefix cleanup.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers
