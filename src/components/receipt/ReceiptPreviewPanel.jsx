@@ -122,7 +122,7 @@ export function ReceiptPreviewPanel({
               </tbody>
             </table>
 
-            <div className="mt-8 text-[16px] leading-7 text-left">
+            <div className="mt-8 text-[19px] leading-7 text-left">
               <div className="pl-12">
                 <span>ข้าพเจ้า</span>
                 <span className="mx-2 inline-block min-w-[280px] border-b border-dotted border-black px-2 text-center font-semibold align-bottom">
