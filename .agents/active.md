@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Continue small receipt data and PDF layout refinements.
+- Add a logo-based shortcut/app icon for the web app.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -45,9 +45,10 @@
 - Widened the date column, reduced the amount column, and prevented Thai date text from wrapping in the PDF table.
 - Removed the dotted underline from the owner-name field in the certification block because it overlapped the text.
 - Expanded all `น.ส.` person prefixes to `นางสาว` in the dropdown data.
+- Added favicon/apple-touch icon links and a web app manifest using the provided `umore made` logo.
 
 ## Next Steps
-- If needed, commit and push the latest dropdown name prefix cleanup.
+- If needed, commit and push the shortcut icon/manifest update.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers
