@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Refine the PDF document layout to match the sample more closely with a reserved table area, no row separators, and more document-style certification copy.
+- Make the generated document behave like an A4 page and refine table/certification layout to match the provided sample.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -34,6 +34,8 @@
 - Replaced the preview logo block with explicit inline brand colors and changed PDF filenames to numeric timestamps.
 - Added the provided `umore made` PNG as a real asset and wired the PDF preview to render it directly.
 - Reworked the PDF table into a fixed-height reserved area with vertically stacked entries, enlarged the logo, and changed the certification line to a document-style name pattern.
+- Set the PDF preview canvas to A4 dimensions, reduced table typography to 12pt, constrained column widths with `table-fixed`, and split the certification text into the requested pattern.
+- Added a first-line indent to the certification text and changed the owner-name underline to a dotted line.
 
 ## Next Steps
 - If needed, commit and push the latest PDF layout refinements.
