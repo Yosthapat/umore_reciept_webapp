@@ -125,7 +125,7 @@ export function ReceiptPreviewPanel({
             <div className="mt-8 text-[19px] leading-7 text-left">
               <div className="pl-12">
                 <span>ข้าพเจ้า</span>
-                <span className="mx-2 inline-block min-w-[280px] border-b border-dotted border-black px-2 text-center font-semibold align-bottom">
+                <span className="mx-2 inline-block min-w-[280px] px-2 text-center font-semibold align-bottom">
                   {ownerName || "\u00A0"}
                 </span>
               </div>

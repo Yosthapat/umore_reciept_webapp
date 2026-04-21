@@ -43,9 +43,10 @@
 - Updated the certification block to a smaller 12pt-style size and separated it into name, certification statement, and payment-confirmation lines.
 - Increased the certification block text back to 19px for better PDF readability.
 - Widened the date column, reduced the amount column, and prevented Thai date text from wrapping in the PDF table.
+- Removed the dotted underline from the owner-name field in the certification block because it overlapped the text.
 
 ## Next Steps
-- If needed, commit and push the latest PDF table column refinement.
+- If needed, commit and push the latest certification field cleanup.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers
