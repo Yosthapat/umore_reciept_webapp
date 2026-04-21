@@ -40,6 +40,7 @@
 - Added an extra first-line indent before `ข้าพเจ้า` in the certification block.
 - Adjusted the certification block to left-align with a fixed dotted name field and separate second line.
 - Refined the certification block to keep the first line together with `whitespace-nowrap` and a fixed dotted owner-name field.
+- Updated the certification block to a smaller 12pt-style size and separated it into name, certification statement, and payment-confirmation lines.
 
 ## Next Steps
 - If needed, commit and push the latest certification layout refinement.
