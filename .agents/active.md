@@ -1,7 +1,7 @@
 # Active Context
 
 ## Current Task
-- Make the generated document behave like an A4 page and refine table/certification layout to match the provided sample.
+- Continue refining the PDF certification text layout to match the provided sample.
 
 ## Done Last Session
 - Initialized `.agents/` context files for this repository.
@@ -38,9 +38,10 @@
 - Added a first-line indent to the certification text and changed the owner-name underline to a dotted line.
 - Changed the certification copy to an inline pattern matching the sample: `ข้าพเจ้า ... ขอรับรองว่า ...` followed by a second line.
 - Added an extra first-line indent before `ข้าพเจ้า` in the certification block.
+- Adjusted the certification block to left-align with a fixed dotted name field and separate second line.
 
 ## Next Steps
-- If needed, commit and push the latest PDF layout refinements.
+- If needed, commit and push the latest certification layout refinement.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers

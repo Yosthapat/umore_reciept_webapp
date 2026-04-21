@@ -28,7 +28,6 @@ export function ReceiptPreviewPanel({
   isDownloadingPdf,
   onDownloadPdf,
 }) {
-  const ownerDisplayName = ownerName || "................................";
   const signDisplayName = signName || "................................";
 
   return (
@@ -123,15 +122,20 @@ export function ReceiptPreviewPanel({
               </tbody>
             </table>
 
-            <div className="mt-8 text-center text-[19px] leading-9">
-              <div className="pl-12">
-                <span className="inline-block pr-2">ข้าพเจ้า</span>
-                <span className="inline-block min-w-[300px] border-b border-dotted border-black px-2 text-center font-semibold">
-                  {ownerDisplayName}
+            <div className="mt-10 text-[19px] leading-8">
+              <div className="pl-10 text-left">
+                <span>ข้าพเจ้า</span>
+                <span className="inline-block w-[340px] border-b border-dotted border-black mx-2 text-center font-semibold">
+                  {ownerName || "................................................"}
                 </span>
-                <span className="inline-block pl-2">ขอรับรองว่า รายจ่ายข้างต้นนี้ไม่อาจเรียกใบเสร็จรับเงินเต็มรูปแบบจากผู้รับได้</span>
+                <span>
+                  ขอรับรองว่า รายจ่ายข้างต้นนี้ไม่อาจเรียกใบเสร็จรับเงินเต็มรูปแบบจากผู้รับได้
+                </span>
               </div>
-              <div>และข้าพเจ้าได้จ่ายไปในงานโดยแท้</div>
+
+              <div className="pl-10 text-left mt-2">
+                และข้าพเจ้าได้จ่ายไปในงานโดยแท้
+              </div>
             </div>
 
             <div className="mt-8 flex justify-end sm:mt-10">
