@@ -122,22 +122,19 @@ export function ReceiptPreviewPanel({
               </tbody>
             </table>
 
-            <div className="mt-10 text-[19px] leading-8">
-              <div className="pl-10 text-left">
+            <div className="mt-10 text-[19px] leading-8 text-left">
+              <div className="pl-10 whitespace-nowrap">
                 <span>ข้าพเจ้า</span>
-                <span className="inline-block w-[340px] border-b border-dotted border-black mx-2 text-center font-semibold">
-                  {ownerName || "................................................"}
+                <span className="mx-2 inline-block min-w-[300px] border-b border-dotted border-black px-2 text-center font-semibold align-bottom">
+                  {ownerName || "\u00A0"}
                 </span>
-                <span>
-                  ขอรับรองว่า รายจ่ายข้างต้นนี้ไม่อาจเรียกใบเสร็จรับเงินเต็มรูปแบบจากผู้รับได้
-                </span>
+                <span>ขอรับรองว่า รายจ่ายข้างต้นนี้ไม่อาจเรียกใบเสร็จรับเงินเต็มรูปแบบจากผู้รับได้</span>
               </div>
 
-              <div className="pl-10 text-left mt-2">
+              <div className="mt-2 pl-10">
                 และข้าพเจ้าได้จ่ายไปในงานโดยแท้
               </div>
             </div>
-
             <div className="mt-8 flex justify-end sm:mt-10">
               <div className="w-[320px] text-center text-[19px] leading-9 sm:w-[320px] sm:text-[19px] sm:leading-9">
                 <div>(ลงชื่อ) ...............................................</div>

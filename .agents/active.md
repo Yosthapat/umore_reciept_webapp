@@ -39,6 +39,7 @@
 - Changed the certification copy to an inline pattern matching the sample: `ข้าพเจ้า ... ขอรับรองว่า ...` followed by a second line.
 - Added an extra first-line indent before `ข้าพเจ้า` in the certification block.
 - Adjusted the certification block to left-align with a fixed dotted name field and separate second line.
+- Refined the certification block to keep the first line together with `whitespace-nowrap` and a fixed dotted owner-name field.
 
 ## Next Steps
 - If needed, commit and push the latest certification layout refinement.
