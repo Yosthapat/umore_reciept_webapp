@@ -36,6 +36,8 @@
 - Reworked the PDF table into a fixed-height reserved area with vertically stacked entries, enlarged the logo, and changed the certification line to a document-style name pattern.
 - Set the PDF preview canvas to A4 dimensions, reduced table typography to 12pt, constrained column widths with `table-fixed`, and split the certification text into the requested pattern.
 - Added a first-line indent to the certification text and changed the owner-name underline to a dotted line.
+- Changed the certification copy to an inline pattern matching the sample: `ข้าพเจ้า ... ขอรับรองว่า ...` followed by a second line.
+- Added an extra first-line indent before `ข้าพเจ้า` in the certification block.
 
 ## Next Steps
 - If needed, commit and push the latest PDF layout refinements.

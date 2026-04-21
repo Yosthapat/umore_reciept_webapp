@@ -123,13 +123,15 @@ export function ReceiptPreviewPanel({
               </tbody>
             </table>
 
-            <div className="mt-8 text-[19px] leading-9">
-              <div className="flex items-end justify-center gap-2 pl-12">
-                <span>ข้าพเจ้า</span>
-                <span className="min-w-[260px] border-b border-dotted border-black px-2 text-center font-semibold">{ownerDisplayName}</span>
-                <span>ขอรับรองว่า รายจ่ายข้างต้นนี้เป็นค่าใช้จ่ายใน</span>
+            <div className="mt-8 text-center text-[19px] leading-9">
+              <div className="pl-12">
+                <span className="inline-block pr-2">ข้าพเจ้า</span>
+                <span className="inline-block min-w-[300px] border-b border-dotted border-black px-2 text-center font-semibold">
+                  {ownerDisplayName}
+                </span>
+                <span className="inline-block pl-2">ขอรับรองว่า รายจ่ายข้างต้นนี้ไม่อาจเรียกใบเสร็จรับเงินเต็มรูปแบบจากผู้รับได้</span>
               </div>
-              <div className="text-center">การปฏิบัติงานจริง และข้าพเจ้าได้จ่ายไปแทนก่อนแล้ว</div>
+              <div>และข้าพเจ้าได้จ่ายไปในงานโดยแท้</div>
             </div>
 
             <div className="mt-8 flex justify-end sm:mt-10">
