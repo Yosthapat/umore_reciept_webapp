@@ -60,9 +60,9 @@ export function ReceiptPreviewPanel({
 
             <table className="mb-3 w-full table-fixed border-collapse text-[16px]">
               <colgroup>
-                <col className="w-[18%]" />
-                <col className="w-[43%]" />
-                <col className="w-[20%]" />
+                <col className="w-[22%]" />
+                <col className="w-[40%]" />
+                <col className="w-[19%]" />
                 <col className="w-[19%]" />
               </colgroup>
               <thead>
@@ -76,7 +76,7 @@ export function ReceiptPreviewPanel({
               <tbody>
                 <tr>
                   <td className="border border-black p-2 align-top">
-                    <div className="flex min-h-[438px] flex-col gap-3">
+                    <div className="flex min-h-[438px] flex-col gap-3 whitespace-nowrap">
                       {items.length > 0 ? (
                         items.map((item) => <div key={item.id}>{formatThaiLongDate(item.date) || "-"}</div>)
                       ) : (

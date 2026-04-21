@@ -42,9 +42,10 @@
 - Refined the certification block to keep the first line together with `whitespace-nowrap` and a fixed dotted owner-name field.
 - Updated the certification block to a smaller 12pt-style size and separated it into name, certification statement, and payment-confirmation lines.
 - Increased the certification block text back to 19px for better PDF readability.
+- Widened the date column, reduced the amount column, and prevented Thai date text from wrapping in the PDF table.
 
 ## Next Steps
-- If needed, commit and push the latest certification layout refinement.
+- If needed, commit and push the latest PDF table column refinement.
 - Validate the exported PDF against the live preview after the next deploy finishes.
 
 ## Blockers
