@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button } from "@/components/ui/button";
+import { DateInput } from "@/components/ui/date-input";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -44,11 +45,9 @@ export function ExpenseItemFields({
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="space-y-1.5">
             <Label>วัน/เดือน/ปี</Label>
-            <Input
-              type="date"
+            <DateInput
               value={item.date}
               onChange={(e) => onChange("date", e.target.value)}
-              className="h-8 rounded-2xl py-0 px-2 text-xs"
             />
             <FieldError message={errors.date} />
           </div>

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { DateInput } from "@/components/ui/date-input";
 import { formatAmount, formatThaiLongDate } from "@/utils/receipt-formatters";
 import { POSITIONS } from "@/constants/receipt-data";
 
@@ -115,15 +116,10 @@ export function ReceiptFormPanel({
           </div>
 
           <div className="space-y-1.5">
-            <Label className="flex items-center gap-1.5">
-              <CalendarDays className="h-3.5 w-3.5" />
-              วันที่ลงชื่อ
-            </Label>
-            <Input
-              type="date"
+            <Label>วันที่ลงชื่อ</Label>
+            <DateInput
               value={signDate}
               onChange={(e) => onSignDateChange(e.target.value)}
-              className="h-8 rounded-2xl py-0 px-2 text-xs"
             />
           </div>
         </div>
