@@ -218,7 +218,7 @@ export function ReceiptFormPanel({
 
           {/* Thumbnails grid */}
           {photos.length > 0 ? (
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               {photos.map((photo) => (
                 <div key={photo.id} className="relative aspect-square overflow-hidden rounded-2xl border border-[var(--umore-border)] bg-[var(--umore-paper)]">
                   <img

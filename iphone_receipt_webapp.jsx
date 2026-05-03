@@ -15,7 +15,7 @@ import {
 } from "./src/utils/receipt-formatters";
 import { downloadReceiptPdf } from "./src/utils/receipt-pdf";
 
-const MAX_PHOTOS = 4;
+const MAX_PHOTOS = 3;
 const MAX_ITEMS_WITH_PHOTOS = 10;
 
 export default function IphoneReceiptWebApp() {

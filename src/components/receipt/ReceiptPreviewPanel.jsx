@@ -18,32 +18,29 @@ function ReceiptLogoMark() {
 }
 
 // Determine table body min-height based on how many photos are attached
-// Reduced when photos present since photo grid takes up vertical space below
 function getTableBodyMinHeight(photoCount) {
   if (photoCount === 0) return "438px";
-  if (photoCount === 1) return "220px";
-  if (photoCount === 2) return "200px";
-  return "140px"; // 3-4 photos: 2 rows × 230px each
+  if (photoCount === 1) return "200px";
+  if (photoCount === 2) return "180px";
+  return "160px"; // 3 photos in single row
 }
 
-// Photos displayed below the table — 1-2: single row, 3-4: 2x2 grid
+// Photos displayed below the table — always single row, max 3 cols
 // object-fit: contain so no detail is cropped; light bg fills letterbox gaps
 function PhotoGrid({ photos }) {
   if (photos.length === 0) return null;
 
   const count = photos.length;
-  const is2Col = count >= 3;
-
-  // Height per cell — taller for fewer images so detail is visible
-  const cellHeight = count === 1 ? "380px" : count === 2 ? "300px" : "230px";
+  // Height scales down as more photos are added to keep total height manageable
+  const cellHeight = count === 1 ? "300px" : count === 2 ? "220px" : "180px";
 
   return (
-    <div style={{ marginTop: "16px" }}>
+    <div style={{ marginTop: "12px" }}>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: is2Col ? "1fr 1fr" : `repeat(${count}, 1fr)`,
-          gap: "10px",
+          gridTemplateColumns: `repeat(${count}, 1fr)`,
+          gap: "8px",
         }}
       >
         {photos.map((photo) => (
