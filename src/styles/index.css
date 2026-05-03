@@ -4,8 +4,9 @@
   font-family: "SF Pro Text", "Noto Sans Thai", "Segoe UI", sans-serif;
   color: #1f2a30;
   background:
-    radial-gradient(circle at top left, rgba(108, 198, 242, 0.16), transparent 28%),
-    linear-gradient(180deg, #f8f3e3 0%, #f4efe1 48%, #efe8d5 100%);
+    radial-gradient(circle at top left, rgba(108, 198, 242, 0.18), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(77, 184, 234, 0.08), transparent 40%),
+    linear-gradient(180deg, #f8f3e3 0%, #f3eedd 52%, #ede6d0 100%);
   --umore-blue: #4db8ea;
   --umore-blue-deep: #2598cf;
   --umore-blue-soft: #dff4fb;
