@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Download, FileText } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -92,9 +92,30 @@ export function ReceiptPreviewPanel({
 }) {
   const signDisplayName = signName || "................................";
   const tableBodyMinHeight = getTableBodyMinHeight(photos.length);
-
-  // When photos are present, only show the first 10 items in the PDF
   const displayItems = photos.length > 0 ? items.slice(0, 10) : items;
+
+  // Scale the 794px preview to fit the container width on narrow screens
+  const scaleWrapRef = useRef(null);
+  const [previewScale, setPreviewScale] = useState(1);
+  const [scaledHeight, setScaledHeight] = useState(1123);
+
+  useEffect(() => {
+    const wrap = scaleWrapRef.current;
+    const preview = previewRef.current;
+    if (!wrap || !preview) return;
+
+    function update() {
+      const newScale = Math.min(1, wrap.offsetWidth / 794);
+      setPreviewScale(newScale);
+      setScaledHeight(preview.scrollHeight * newScale);
+    }
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(wrap);
+    ro.observe(preview);
+    return () => ro.disconnect();
+  }, [previewRef]);
 
   return (
     <div className="min-w-0 space-y-4">
@@ -121,13 +142,15 @@ export function ReceiptPreviewPanel({
         </Button>
       </div>
 
-      <div className="max-w-full overflow-hidden rounded-[1.75rem] bg-[linear-gradient(180deg,color-mix(in_oklab,var(--umore-cream)_86%,white)_0%,color-mix(in_oklab,var(--umore-blue-soft)_24%,white)_100%)] p-3 shadow-inner sm:rounded-[2rem] sm:p-4">
-        <div className="max-h-[75vh] max-w-full overflow-auto rounded-[1.25rem] bg-[color-mix(in_oklab,var(--umore-paper)_82%,white)] p-2 sm:rounded-[1.5rem] sm:p-3 md:p-6">
+      <div className="overflow-hidden rounded-[1.75rem] bg-[linear-gradient(180deg,color-mix(in_oklab,var(--umore-cream)_86%,white)_0%,color-mix(in_oklab,var(--umore-blue-soft)_24%,white)_100%)] p-3 shadow-inner sm:rounded-[2rem] sm:p-4">
+        <div className="overflow-hidden rounded-[1.25rem] bg-[color-mix(in_oklab,var(--umore-paper)_82%,white)] p-2 sm:rounded-[1.5rem] sm:p-3">
+          {/* Scale wrapper — measures container width and scales the 794px doc to fit */}
+          <div ref={scaleWrapRef} style={{ width: "100%", position: "relative", height: `${scaledHeight}px` }}>
+            <div style={{ position: "absolute", top: 0, left: 0, transform: `scale(${previewScale})`, transformOrigin: "top left" }}>
           <div
             ref={previewRef}
-            className="mx-auto w-[794px] bg-white px-12 py-10 text-black shadow-[0_24px_80px_rgba(0,0,0,0.12)]"
-            // Height is auto when photos present so content can grow; fixed when no photos
-            style={{ minHeight: "1123px" }}
+            className="bg-white px-12 py-10 text-black shadow-[0_24px_80px_rgba(0,0,0,0.12)]"
+            style={{ width: "794px", minHeight: "1123px" }}
           >
             {/* Header */}
             <div className="mb-6 flex items-start justify-between gap-4">
@@ -253,6 +276,8 @@ export function ReceiptPreviewPanel({
               </div>
             </div>
           </div>
+            </div>{/* close absolute scaler */}
+          </div>{/* close scaleWrapRef */}
         </div>
       </div>
     </div>
