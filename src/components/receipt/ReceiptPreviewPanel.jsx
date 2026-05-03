@@ -18,42 +18,59 @@ function ReceiptLogoMark() {
 }
 
 // Determine table body min-height based on how many photos are attached
+// Reduced when photos present since photo grid takes up vertical space below
 function getTableBodyMinHeight(photoCount) {
   if (photoCount === 0) return "438px";
-  if (photoCount <= 2) return "260px";
-  return "160px";
+  if (photoCount === 1) return "220px";
+  if (photoCount === 2) return "200px";
+  return "140px"; // 3-4 photos: 2 rows × 230px each
 }
 
 // Photos displayed below the table — 1-2: single row, 3-4: 2x2 grid
+// object-fit: contain so no detail is cropped; light bg fills letterbox gaps
 function PhotoGrid({ photos }) {
   if (photos.length === 0) return null;
 
-  const is2Col = photos.length >= 3;
-  const imageHeight = is2Col ? "180px" : "240px";
+  const count = photos.length;
+  const is2Col = count >= 3;
+
+  // Height per cell — taller for fewer images so detail is visible
+  const cellHeight = count === 1 ? "380px" : count === 2 ? "300px" : "230px";
 
   return (
     <div style={{ marginTop: "16px" }}>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: is2Col ? "1fr 1fr" : `repeat(${photos.length}, 1fr)`,
+          gridTemplateColumns: is2Col ? "1fr 1fr" : `repeat(${count}, 1fr)`,
           gap: "10px",
         }}
       >
         {photos.map((photo) => (
-          <img
+          <div
             key={photo.id}
-            src={photo.url}
-            alt="แนบรูป"
             style={{
-              width: "100%",
-              height: imageHeight,
-              objectFit: "cover",
+              height: cellHeight,
+              backgroundColor: "#f8f8f8",
               borderRadius: "6px",
               border: "1px solid #d1d5db",
-              display: "block",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
-          />
+          >
+            <img
+              src={photo.url}
+              alt="แนบรูป"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "contain",
+                display: "block",
+              }}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -64,6 +81,7 @@ export function ReceiptPreviewPanel({
   previewRef,
   items,
   ownerName,
+  ownerPosition,
   signName,
   signDate,
   footerNote,
@@ -203,8 +221,12 @@ export function ReceiptPreviewPanel({
             <div className="mt-8 text-left text-[19px] leading-7">
               <div className="pl-12">
                 <span>ข้าพเจ้า</span>
-                <span className="mx-2 inline-block min-w-[280px] px-2 text-center font-semibold align-bottom">
+                <span className="mx-2 inline-block min-w-[200px] px-2 text-center font-semibold align-bottom">
                   {ownerName || "\u00A0"}
+                </span>
+                <span>ตำแหน่ง</span>
+                <span className="mx-2 inline-block min-w-[100px] px-2 text-center font-semibold align-bottom">
+                  {ownerPosition || "\u00A0"}
                 </span>
               </div>
               <div className="mt-2 pl-12">

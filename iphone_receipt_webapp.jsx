@@ -21,6 +21,7 @@ const MAX_ITEMS_WITH_PHOTOS = 10;
 export default function IphoneReceiptWebApp() {
   const previewRef = useRef(null);
   const [ownerName, setOwnerName] = useState("");
+  const [ownerPosition, setOwnerPosition] = useState("");
   const [signName, setSignName] = useState("");
   const [signDate, setSignDate] = useState(getTodayDateString());
   const [footerNote, setFooterNote] = useState("");
@@ -157,6 +158,7 @@ export default function IphoneReceiptWebApp() {
           <ReceiptFormPanel
             people={PEOPLE}
             ownerName={ownerName}
+            ownerPosition={ownerPosition}
             signName={signName}
             signDate={signDate}
             draftItem={draftItem}
@@ -168,6 +170,7 @@ export default function IphoneReceiptWebApp() {
             maxPhotos={MAX_PHOTOS}
             maxItemsWithPhotos={MAX_ITEMS_WITH_PHOTOS}
             onOwnerChange={setOwnerName}
+            onOwnerPositionChange={setOwnerPosition}
             onSignChange={setSignName}
             onSignDateChange={setSignDate}
             onAddItem={addItem}
@@ -184,6 +187,7 @@ export default function IphoneReceiptWebApp() {
             previewRef={previewRef}
             items={items}
             ownerName={ownerName}
+            ownerPosition={ownerPosition}
             signName={signName}
             signDate={signDate}
             footerNote={footerNote}

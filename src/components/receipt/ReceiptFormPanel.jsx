@@ -25,9 +25,12 @@ function SectionDivider() {
   return <div className="border-t border-[color-mix(in_oklab,var(--umore-border)_45%,transparent)]" />;
 }
 
+const POSITIONS = ["CEO", "CFO", "CTO", "MD", "GM"];
+
 export function ReceiptFormPanel({
   people,
   ownerName,
+  ownerPosition,
   signName,
   signDate,
   draftItem,
@@ -39,6 +42,7 @@ export function ReceiptFormPanel({
   maxPhotos,
   maxItemsWithPhotos,
   onOwnerChange,
+  onOwnerPositionChange,
   onSignChange,
   onSignDateChange,
   onAddItem,
@@ -87,16 +91,28 @@ export function ReceiptFormPanel({
             </div>
 
             <div className="space-y-1.5">
-              <Label>ลงชื่อ</Label>
+              <Label>ตำแหน่ง</Label>
               <select
-                value={signName}
-                onChange={(e) => onSignChange(e.target.value)}
+                value={ownerPosition}
+                onChange={(e) => onOwnerPositionChange(e.target.value)}
                 className={selectClass}
               >
-                <option value="" disabled>เลือกชื่อผู้ลงนาม</option>
-                {people.map((p) => <option key={p} value={p}>{p}</option>)}
+                <option value="" disabled>เลือกตำแหน่ง</option>
+                {POSITIONS.map((pos) => <option key={pos} value={pos}>{pos}</option>)}
               </select>
             </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label>ลงชื่อ</Label>
+            <select
+              value={signName}
+              onChange={(e) => onSignChange(e.target.value)}
+              className={selectClass}
+            >
+              <option value="" disabled>เลือกชื่อผู้ลงนาม</option>
+              {people.map((p) => <option key={p} value={p}>{p}</option>)}
+            </select>
           </div>
 
           <div className="space-y-1.5">
