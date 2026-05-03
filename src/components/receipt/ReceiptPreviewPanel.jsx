@@ -134,7 +134,12 @@ export function ReceiptPreviewPanel({
               <div className="w-[128px]" />
               <div className="flex-1 pt-1 text-center sm:pt-2">
                 <div className="text-[24px] font-semibold">ใบรับรองแทนใบเสร็จรับเงิน</div>
-                <div className="mt-1 text-[24px] font-bold">U MORE ST GROUP Co.,Ltd.</div>
+                <div className="mt-1 text-[24px] font-bold">บริษัท ยู มอร์ เอสที กรุ๊ป จำกัด</div>
+                <div className="mt-1 text-[13px] font-normal leading-5 text-gray-600">
+                  สำนักงานใหญ่<br />
+                  0135567002865<br />
+                  55/411 หมู่ที่ 2 ต.ลำผักกูด อำเภอธัญบุรี จังหวัดปทุมธานี 12110
+                </div>
               </div>
               <ReceiptLogoMark />
             </div>
@@ -233,7 +238,7 @@ export function ReceiptPreviewPanel({
                 ขอรับรองว่า รายจ่ายข้างต้นนี้ไม่อาจเรียกใบเสร็จรับเงินเต็มรูปแบบจากผู้รับได้
               </div>
               <div className="mt-1 pl-12">
-                และข้าพเจ้าได้จ่ายไปในงานของทาง บริษัท ยู มอร์ เอสที กรุ๊ป จำกัด โดยแท้
+                และข้าพเจ้าได้จ่ายไปในงานของทางบริษัท ยู มอร์ เอสที กรุ๊ป จำกัด โดยแท้
               </div>
             </div>
 
