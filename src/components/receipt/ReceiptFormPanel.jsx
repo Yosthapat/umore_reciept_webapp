@@ -123,7 +123,7 @@ export function ReceiptFormPanel({
               type="date"
               value={signDate}
               onChange={(e) => onSignDateChange(e.target.value)}
-              className="h-11 rounded-2xl"
+              className="h-9 rounded-2xl text-sm"
             />
           </div>
         </div>

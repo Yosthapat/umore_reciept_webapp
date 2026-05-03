@@ -48,7 +48,7 @@ export function ExpenseItemFields({
               type="date"
               value={item.date}
               onChange={(e) => onChange("date", e.target.value)}
-              className="h-11 rounded-2xl"
+              className="h-9 rounded-2xl text-sm"
             />
             <FieldError message={errors.date} />
           </div>
