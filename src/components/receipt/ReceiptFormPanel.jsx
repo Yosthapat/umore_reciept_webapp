@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatAmount, formatThaiLongDate } from "@/utils/receipt-formatters";
+import { POSITIONS } from "@/constants/receipt-data";
 
 import { ExpenseItemFields } from "./ExpenseItemFields";
 
@@ -24,8 +25,6 @@ function SectionHeader({ icon, title }) {
 function SectionDivider() {
   return <div className="border-t border-[color-mix(in_oklab,var(--umore-border)_45%,transparent)]" />;
 }
-
-const POSITIONS = ["CEO", "CFO", "CTO", "MD", "GM"];
 
 export function ReceiptFormPanel({
   people,

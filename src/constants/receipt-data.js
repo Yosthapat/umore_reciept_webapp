@@ -1,3 +1,5 @@
+export const POSITIONS = ["CEO", "CFO", "CTO", "MD", "GM"];
+
 export const PEOPLE = [
   "นางสาวโชติกา ภัชพ่วงคล้าย",
   "นางสาวสิรีรัศมิ์ ภัชพ่วงคล้าย",
